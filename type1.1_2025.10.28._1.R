@@ -1,0 +1,10 @@
+rdata <- read.csv("P210201.csv")
+str(rdata)
+view(rdata)
+rdata <- rdata%>%arrange(-crim)
+tenth<-rdata$crim[10]
+rdata$crim <- ifelse(rdata$crim>tenth,tenth, rdata$crim)
+head(rdata,10)
+data <- rdata %>% filter(age>=80)
+result <- mean(data$crim)
+print(round(result,2))
