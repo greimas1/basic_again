@@ -1,0 +1,11 @@
+library(dplyr)
+rdata <- read.csv("P210302.csv")
+str(rdata)
+colSums(is.na(rdata))
+nrow(rdata)
+df <- colSums(is.na(rdata))/nrow(rdata)
+df <- as.data.frame(df)
+str(df)
+df <- df %>% arrange(desc(df))
+print(df[1])
+rownames(df)[1]
